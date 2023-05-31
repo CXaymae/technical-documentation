@@ -7,6 +7,35 @@
     <title>Technical Documentation</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    <script>
+    // Function to copy code to clipboard
+    function copyToClipboard(codeId) {
+        // Get the code element by its ID
+        const codeElement = document.getElementById(codeId);        
+        // Get the text content of the code element
+        const codeText = codeElement.textContent;        
+        // Copy the code text to the clipboard using the Clipboard API
+        navigator.clipboard.writeText(codeText).then(function() {
+            // Get the icon element that represents the copy icon
+            const iconElement = codeElement.previousElementSibling;            
+            // Replace the copy icon with a checkmark icon
+            iconElement.classList.remove("fa-copy");
+            iconElement.classList.add("fa-check");
+            iconElement.style.color = "green";            
+            // Reset the icon to the copy icon after a delay of 1500ms (1.5 seconds)
+            setTimeout(function() {
+                iconElement.classList.remove("fa-check");
+                iconElement.classList.add("fa-copy");
+                iconElement.style.color = "#777";
+            }, 1500);
+        }, function() {
+            // Handle the error if copying to clipboard fails
+            console.error("Failed to copy code to clipboard.");
+        });
+    }
+</script>
+
 </head>
 <body>
     <nav id="navbar">
@@ -43,7 +72,8 @@
         <section class="main-section" id="Syntax">
             <header>Syntax</header>
             <p>Syntax is the structure of statements , Here is a simple program typed in C# to discuss the meaning of syntax</p>
-            <pre><code>using System;
+            <pre>
+                <code id="syntax-code">using System;
 namespace Hello
 {
     class MyProgram
@@ -59,7 +89,9 @@ namespace Hello
             Console.WriteLine("AAA");
         }
     }
-}</code></pre>
+}</code>
+    <i class="fas fa-copy copy-icon" onclick="copyToClipboard('syntax-code')"></i>
+</pre>
         </section>
 
         <section class="main-section" id="Data_Types">
