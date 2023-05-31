@@ -29,6 +29,11 @@ pre{
     padding: 6px 10px;width: fit-content;
     background-color: #121212;color: #e2e2e2;
 }
+.copy-icon {
+            cursor: pointer;
+            color: #777abc;
+            margin-left: 5px;
+        }
 
 @media screen and (max-width: 800px) {
     #navbar {
